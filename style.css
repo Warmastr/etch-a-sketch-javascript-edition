@@ -1,0 +1,32 @@
+.containerOuter {
+    background-color: #a31919;
+    width: 99vw;
+    height: 98vh;
+    border-radius: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerInner {
+    background-color: #737874;
+    width: 90vw;
+    border-radius: 40px;
+    height: 85%;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+}
+
+img {
+    width: 120px;
+    height: auto;
+}
+
+.imgContainer {
+    width: 93vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
