@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=MedievalSharp&display=swap');
+
 .containerOuter {
     background-color: #a31919;
     width: 70vw;
@@ -17,7 +19,6 @@
     border-radius: 40px;
     height: 85%;
     margin-bottom: 1%;
-    margin-top: 10vh;
     box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.9);
 }
 
@@ -108,4 +109,32 @@ label {
 .bgColor {
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+h1 {
+    margin-top: 10px;
+    padding: 0;
+}
+
+span {
+    
+    
+    font-family: 'Lavishly Yours', cursive;
+    letter-spacing: 5px;
+    font-size: 45px;
+    font-weight: bold;
+    background-image: linear-gradient(
+	to right,
+	#462523 0,
+    #cb9b51 22%, 
+	#f6e27a 45%,
+	#f6f2c0 30%,
+	#f6e27a 55%,
+	#cb9b51 78%,
+	#462523 100%
+	);
+    color:transparent;
+    -webkit-background-clip:text;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
