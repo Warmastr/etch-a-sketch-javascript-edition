@@ -1,32 +1,111 @@
 .containerOuter {
     background-color: #a31919;
-    width: 99vw;
+    width: 70vw;
     height: 98vh;
     border-radius: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 8px 10px 10px #ec5d5d;
+    margin: auto;
 }
 
 .containerInner {
     background-color: #737874;
-    width: 90vw;
+    width: 80%;
     border-radius: 40px;
     height: 85%;
-    margin-bottom: 2vh;
-    margin-top: 5vh;
+    margin-bottom: 1%;
+    margin-top: 10vh;
+    box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.9);
 }
 
 img {
-    width: 120px;
-    height: auto;
+    width: 125px;
 }
 
 .imgContainer {
-    width: 93vw;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 2vh;
+    margin-bottom: 1%;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    width: 97.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftControls {
+    height: 95%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px 0px 30px;
+}
+
+.gridContainer {
+    width: 60%;
+    height: 95%;
+    border: 8px double black; 
+    border-radius: 40px;
+}
+
+button {
+    margin: 5px 5px 5px 0;
+    display: inline-block;
+    background-color: #a31919;
+    border-radius: 13px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ec5d5d;
+    box-shadow: 0 0px 10px black;
+}
+
+label {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 5px 5px 0;
+}
+
+.slider {
+    margin: 0 10px 5px 0;
+}
+
+.checkbox {
+    margin: 0 10px 5px 0;
+}
+
+.brushColor {
+    margin-bottom: 5px;
+}
+
+.bgColor {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

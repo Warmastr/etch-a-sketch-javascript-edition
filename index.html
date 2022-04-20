@@ -11,21 +11,48 @@
 <body>
     <div class="containerOuter">
         <div class="containerInner">
-            <div class="controls"></div>
-                <h1>Etch A Sketch in JavaScript</h1>
-                <button type="button" class="colorBrush">Brush Color</button>
-                <button type="button" class="colorBg">Background Color</button>
-                <div class="btnContainer">
-                    <button type="button" class="darken">Darken</button>
-                    <button type="button" class="lighten">Lighten</button>
-                    <button type="button" class="clear">Clear</button>
+            <div class="controls">
+                <div class="leftControls">
+                    <h1>Etch A Sketch in JavaScript</h1>
+                    <div class="brushColor">
+                        <input type="color" id="brush" name="brush" value="black">
+                        <label for="brush">Brush Color</label>
+                    </div>
+                    <div class="bgColor">
+                        <input type="color" id="bg" name="bg" value="black">
+                        <label for="bg">Background Color</label>
+                    </div>
+                    <div class="btnContainer">
+                        <button type="button" class="darken">Darken</button>
+                        <button type="button" class="lighten">Lighten</button>
+                        <button type="button" class="clear">Clear</button>
+                    </div>
+                    <div class="labels">
+                        <div class="slider">
+                            <input type="range" min="10" max="100" id="gridSize" name="gridSize" value="10" step="10" list="steplist">
+                            <datalist id="steplist">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                                <option>70</option>
+                                <option>80</option>
+                                <option>90</option>
+                                <option>100</option>
+                            </datalist>
+                            <label for="gridSize">Grid Size</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="gridToggle" name="gridToggle">
+                            <label for="gridToggle">Toggle Grid On/Off</label>
+                        </div>
+                    </div>
                 </div>
-                <input type="range" min="10" max="100" id="gridSize" name="gridSize" value="10" step="1">
-                <label for="gridSize">Grid Size</label>
-                <input type="checkbox" id="gridToggle" name="gridToggle">
-                <label for="gridToggle">Toggle Grid On/Off</label>
             <div class="gridContainer">
 
+            </div>
             </div>
         </div>
         <div class="imgContainer">
