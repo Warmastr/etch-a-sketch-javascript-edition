@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=MedievalSharp&display=swap');
 
+body {
+    background-color: #943030;
+}
+
 .containerOuter {
     background-color: #a31919;
     width: 70vw;
@@ -9,7 +13,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 8px 10px 10px #ec5d5d;
+    /* box-shadow: 20px 20px 50px #ec5d5d, 
+                -30px -30px 60px #ec5d5d; */
+    box-shadow: inset 0px 0px 13px 5px rgba(0,0,0,0.9),
+                20px 20px 50px #ec5d5d,
+                -30px -30px 60px #ec5d5d;
     margin: auto;
 }
 
@@ -19,7 +27,9 @@
     border-radius: 40px;
     height: 85%;
     margin-bottom: 1%;
-    box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.9);
+    box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.9),
+                1px 1px 5px 1px black,
+                -1px -1px 1px black;
 }
 
 img {
@@ -137,4 +147,8 @@ span {
     -webkit-background-clip:text;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+}
+
+#brush {
+    border-radius: 5px;
 }
