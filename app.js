@@ -12,10 +12,24 @@ const gridSize = document.querySelector('#gridSize');
 const gridToggle = document.querySelector('#gridToggle');
 const gridContainer = document.querySelector('.gridContainer');
 const clear = document.querySelector('.clear');
-let value = gridSize.value;
+
+const repeatString = function(string, num) {
+    const err = 'ERROR';
+    let result = '';
+    if (num < 0) result = 'ERROR';
+    for (let i = 0; i < num; i++) {
+        result += string;
+        }
+    return result
+};
+
 // get the value of the range slider in real time.
-value = gridSize.addEventListener("change", function(e) {
-    return console.log(e.target.value);
+gridSize.addEventListener("change ", function(e) {
+    let value = e.target.value; // do what needs to be done inside the event handler.
+    let cols = repeatString('1fr', value);
+    const grid = document.createElement('div');
+    gridContainer.style.gridTemplateColumns = repeat(value, cols);
+    gridContainer.appendChild(grid);
 });
 
 
