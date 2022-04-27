@@ -13,6 +13,11 @@ const gridToggle = document.querySelector('#gridToggle');
 const gridContainer = document.querySelector('.gridContainer');
 const clear = document.querySelector('.clear');
 
+function clearGrid() {
+    clear.addEventListener('click', e => {
+        e.target.createGrid();
+    });
+}
 const repeatString = function(string, num) {
     const err = 'ERROR';
     let result = '';
@@ -23,15 +28,28 @@ const repeatString = function(string, num) {
     return result
 };
 
-// get the value of the range slider in real time.
-gridSize.addEventListener("change ", function(e) {
-    let value = e.target.value; // do what needs to be done inside the event handler.
-    let cols = repeatString('1fr', value);
-    const grid = document.createElement('div');
-    gridContainer.style.gridTemplateColumns = repeat(value, cols);
-    gridContainer.appendChild(grid);
-});
+/* create grid and append to the grid container: What do we need to create a grid? 
+1.) Since this is a square, we have to have the number of columns which is determined by the gridSize value.
+2.)  */
+function createGrid() {
+    gridSize.addEventListener("change", function(e) {
+        let value = e.target.value;
+        console.log(value);
+        let col = repeatString('1fr ', value);
+        let row = repeatString('1fr', value);
+        let grid = '';
+        for (let i = 0; i < value; i++) {
+            grid = document.createElement('div');
+            gridContainer.append(grid);
+            grid.style.border = '1px solid black';
+            gridContainer.style.gridTemplateColumns = `${col}`;
+            gridContainer.style.gridTemplateRows = `${col}`;
+        }
+    });
+    return ;
+}
 
+createGrid();
 
 
 
