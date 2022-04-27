@@ -2,6 +2,8 @@
 
 body {
     background-color: #af3838;
+    width: 100%;
+    height: 100%;
 }
 
 .containerOuter {
@@ -65,10 +67,13 @@ img {
 }
 
 .gridContainer {
+    display: grid;
+
     width: 60%;
     height: 95%;
     border: 8px double black; 
     border-radius: 40px;
+    padding: 10px;
 }
 
 button {
