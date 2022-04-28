@@ -16,10 +16,16 @@ const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 
 function clearGrid() {
-    clear.addEventListener('click', e => {
-        resetGrid();
-    });
+    let lastGridElem = gridContainer.lastElementChild;
+    while (lastGridElem) {
+        gridContainer.removeChild(lastGridElem);
+        lastGridElem = gridContainer.lastElementChild;
+    }
 }
+clear.addEventListener('click', (e) => {
+    clearGrid();
+    defaultGrid();
+});
 const repeatString = function(string, num) {
     const err = 'ERROR';
     let result = '';
@@ -35,19 +41,20 @@ const repeatString = function(string, num) {
 2.)  */
 
 function defaultGrid() {
-    let col = repeatString('1fr ', 10);
+    let colRows = repeatString('1fr ', 10);
     for (let i = 0; i <= 9; i++) {
         for (let j = 0; j <=9; j++) {
             let grid = document.createElement('div');
             gridContainer.append(grid);
             grid.style.border = '1px solid black';
-            gridContainer.style.gridTemplateColumns = `${col}`;
-            gridContainer.style.gridTemplateRows = `${col}`;
+            gridContainer.style.gridTemplateColumns = `${colRows}`;
+            gridContainer.style.gridTemplateRows = `${colRows}`;
         }
     }
 }
 
 function createGrid() {
+    clearGrid();
     defaultGrid();
     gridSize.addEventListener("change", function(e) {
         let value = e.target.value;
@@ -58,7 +65,7 @@ function createGrid() {
             // create the rows
             for (let j = 0; j <= value; j++) {
                 let grid = document.createElement('div');
-                gridContainer.append(grid);
+                gridContainer.appendChild(grid);
                 grid.style.border = '1px solid black';
                 gridContainer.style.gridTemplateColumns = `${colRow}`;
                 gridContainer.style.gridTemplateRows = `${colRow}`;
