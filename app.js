@@ -35,11 +35,6 @@ const repeatString = function(string, num) {
         }
     return result
 };
-
-/* create grid and append to the grid container: What do we need to create a grid? 
-1.) Since this is a square, we have to have the number of columns which is determined by the gridSize value.
-2.)  */
-
 function defaultGrid() {
     let colRows = repeatString('1fr ', 10);
     for (let i = 0; i <= 9; i++) {
@@ -74,34 +69,5 @@ function createGrid() {
     });
     
 }
-
-// grid take 2
-
-/* function createGrid (x) {
-    for (let rows = 0; rows < x; rows++) {
-        for (let col = 0; col < x; col++) {
-            gridContainer.append(gridDiv);
-            gridDiv.classList.add("grid");
-        };
-    };
-    gridDiv.style.width = (10/x);
-    gridDiv.style.height = (10/x);
-}
-
-*/
 createGrid(); 
 
-
-
-/* if range slider is set to 10, then we need 100 total squares that take up the entire space of gridContainer. if range slider value = 10 then gridContainer.grid-template-columns = 'repeat(gridSize, 1fr * 10)(some function to repeat a phrase...where have I seen this before?)
-
-// This algorithm allows you to concatenate a string any number of times. Handles negative numbers.
-const repeatString = function(string, num) {
-    const err = 'ERROR';
-    let result = '';
-    if (num < 0) result = 'ERROR';
-    for (let i = 0; i < num; i++) {
-        result += string;
-        }
-    return result
-}; */
