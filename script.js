@@ -25,7 +25,6 @@ function clearGrid() {
 }
 clear.addEventListener('click', (e) => {
     clearGrid();
-    defaultGrid();
 });
 const repeatString = function(string, num) {
     const err = 'ERROR';
@@ -54,12 +53,18 @@ function defaultGrid() {
 }
 
 function createGrid() {
-    clearGrid();
+    // set a default size of 10x10
     defaultGrid();
+    // wait for a input change to the value to happen
     gridSize.addEventListener("change", function(e) {
+        // delete the current grid
+        clearGrid();
+        // establish the width and height value for the grid since it will be square
         let value = e.target.value;
+        // update the label to inform the user which size grid was selected
         size.textContent = `Grid Size: ${String(value) + 'x' + String(value)}`
         size.style.color = "maroon";
+        // use flex size to automatically proportion the grid cells based on the container size
         let colRow = repeatString('1fr ', value);
         // create the columns
         for (let i = 0; i <= value; i++) {
@@ -73,7 +78,5 @@ function createGrid() {
             }
         }
     });
-    
 }
-createGrid(); 
-
+createGrid();
