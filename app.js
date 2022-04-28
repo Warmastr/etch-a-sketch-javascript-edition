@@ -14,6 +14,7 @@ const gridContainer = document.querySelector('.gridContainer');
 const clear = document.querySelector('.clear');
 const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
+const size = document.querySelector('#size');
 
 function clearGrid() {
     let lastGridElem = gridContainer.lastElementChild;
@@ -36,8 +37,11 @@ const repeatString = function(string, num) {
     return result
 };
 function defaultGrid() {
+    // create a 10x10 grid
     let colRows = repeatString('1fr ', 10);
+    // create columns
     for (let i = 0; i <= 9; i++) {
+        // create rows
         for (let j = 0; j <=9; j++) {
             let grid = document.createElement('div');
             gridContainer.append(grid);
@@ -46,6 +50,7 @@ function defaultGrid() {
             gridContainer.style.gridTemplateRows = `${colRows}`;
         }
     }
+    // add reset to input range slider to default 10x10.
 }
 
 function createGrid() {
@@ -53,7 +58,8 @@ function createGrid() {
     defaultGrid();
     gridSize.addEventListener("change", function(e) {
         let value = e.target.value;
-        console.log(value);
+        size.textContent = `Grid Size: ${String(value) + 'x' + String(value)}`
+        size.style.color = "maroon";
         let colRow = repeatString('1fr ', value);
         // create the columns
         for (let i = 0; i <= value; i++) {
