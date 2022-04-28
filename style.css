@@ -69,8 +69,8 @@ img {
 .gridContainer {
     display: grid;
 
-    width: 750px;
-    height: 750px;
+    width: 60vw;
+    height: 70vh;
     border: 8px double black; 
     border-radius: 40px;
     padding: 10px;
