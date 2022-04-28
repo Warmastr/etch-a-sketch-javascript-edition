@@ -12,10 +12,12 @@ const gridSize = document.querySelector('#gridSize');
 const gridToggle = document.querySelector('#gridToggle');
 const gridContainer = document.querySelector('.gridContainer');
 const clear = document.querySelector('.clear');
+const gridStyle = document.querySelector('.gridStyle');
+const gridDiv = document.createElement('div');
 
 function clearGrid() {
     clear.addEventListener('click', e => {
-        e.target.createGrid();
+        resetGrid();
     });
 }
 const repeatString = function(string, num) {
@@ -31,25 +33,56 @@ const repeatString = function(string, num) {
 /* create grid and append to the grid container: What do we need to create a grid? 
 1.) Since this is a square, we have to have the number of columns which is determined by the gridSize value.
 2.)  */
-function createGrid() {
-    gridSize.addEventListener("change", function(e) {
-        let value = e.target.value;
-        console.log(value);
-        let col = repeatString('1fr ', value);
-        let row = repeatString('1fr', value);
-        let grid = '';
-        for (let i = 0; i < value; i++) {
-            grid = document.createElement('div');
+
+function defaultGrid() {
+    let col = repeatString('1fr ', 10);
+    for (let i = 0; i <= 9; i++) {
+        for (let j = 0; j <=9; j++) {
+            let grid = document.createElement('div');
             gridContainer.append(grid);
             grid.style.border = '1px solid black';
             gridContainer.style.gridTemplateColumns = `${col}`;
             gridContainer.style.gridTemplateRows = `${col}`;
         }
-    });
-    return ;
+    }
 }
 
-createGrid();
+function createGrid() {
+    defaultGrid();
+    gridSize.addEventListener("change", function(e) {
+        let value = e.target.value;
+        console.log(value);
+        let colRow = repeatString('1fr ', value);
+        // create the columns
+        for (let i = 0; i <= value; i++) {
+            // create the rows
+            for (let j = 0; j <= value; j++) {
+                let grid = document.createElement('div');
+                gridContainer.append(grid);
+                grid.style.border = '1px solid black';
+                gridContainer.style.gridTemplateColumns = `${colRow}`;
+                gridContainer.style.gridTemplateRows = `${colRow}`;
+            }
+        }
+    });
+    
+}
+
+// grid take 2
+
+/* function createGrid (x) {
+    for (let rows = 0; rows < x; rows++) {
+        for (let col = 0; col < x; col++) {
+            gridContainer.append(gridDiv);
+            gridDiv.classList.add("grid");
+        };
+    };
+    gridDiv.style.width = (10/x);
+    gridDiv.style.height = (10/x);
+}
+
+*/
+createGrid(); 
 
 
 
