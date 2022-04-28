@@ -21,6 +21,7 @@ function clearGrid() {
     while (lastGridElem) {
         gridContainer.removeChild(lastGridElem);
         lastGridElem = gridContainer.lastElementChild;
+
     }
 }
 clear.addEventListener('click', (e) => {
@@ -39,9 +40,9 @@ function defaultGrid() {
     // create a 10x10 grid
     let colRows = repeatString('1fr ', 10);
     // create columns
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 1; i <= 10; i++) {
         // create rows
-        for (let j = 0; j <=9; j++) {
+        for (let j = 1; j <=10; j++) {
             let grid = document.createElement('div');
             gridContainer.append(grid);
             grid.style.border = '1px solid black';
@@ -55,7 +56,7 @@ function defaultGrid() {
 function createGrid() {
     // set a default size of 10x10
     defaultGrid();
-    // wait for a input change to the value to happen
+    // wait for an input change to the value to happen
     gridSize.addEventListener("change", function(e) {
         // delete the current grid
         clearGrid();
@@ -67,9 +68,9 @@ function createGrid() {
         // use flex size to automatically proportion the grid cells based on the container size
         let colRow = repeatString('1fr ', value);
         // create the columns
-        for (let i = 0; i <= value; i++) {
+        for (let i = 1; i <= value; i++) {
             // create the rows
-            for (let j = 0; j <= value; j++) {
+            for (let j = 1; j <= value; j++) {
                 let grid = document.createElement('div');
                 gridContainer.appendChild(grid);
                 grid.style.border = '1px solid black';
