@@ -146,3 +146,11 @@ span {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+
+.cell {
+    border: 1px solid black;
+}
+
+.noCell {
+    border: none;
+}
