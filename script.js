@@ -15,6 +15,7 @@ const clear = document.querySelector('.clear');
 const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
+let grid = document.createElement('div');
 
 function clearGrid() {
     let lastGridElem = gridContainer.lastElementChild;
@@ -24,6 +25,11 @@ function clearGrid() {
 
     }
 }
+
+gridToggle.addEventListener('change', (e) => {
+    
+});
+
 clear.addEventListener('click', (e) => {
     clearGrid();
 });
@@ -43,7 +49,7 @@ function defaultGrid() {
     for (let i = 1; i <= 10; i++) {
         // create rows
         for (let j = 1; j <=10; j++) {
-            let grid = document.createElement('div');
+            grid = document.createElement('div');
             gridContainer.append(grid);
             grid.style.border = '1px solid black';
             gridContainer.style.gridTemplateColumns = `${colRows}`;
@@ -71,7 +77,7 @@ function createGrid() {
         for (let i = 1; i <= value; i++) {
             // create the rows
             for (let j = 1; j <= value; j++) {
-                let grid = document.createElement('div');
+                grid = document.createElement('div');
                 gridContainer.appendChild(grid);
                 grid.style.border = '1px solid black';
                 gridContainer.style.gridTemplateColumns = `${colRow}`;
