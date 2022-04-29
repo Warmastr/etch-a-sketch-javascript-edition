@@ -15,25 +15,22 @@ const clear = document.querySelector('.clear');
 const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
-let grid = document.createElement('div');
-grid.classList = 'cell';
 
 function clearGrid() {
     let lastGridElem = gridContainer.lastElementChild;
     while (lastGridElem) {
         gridContainer.removeChild(lastGridElem);
         lastGridElem = gridContainer.lastElementChild;
-
     }
 }
 
-clear.addEventListener('click', (e) => {
+clear.addEventListener('click', () => {
     clearGrid();
 });
 const repeatString = function(string, num) {
     const err = 'ERROR';
     let result = '';
-    if (num < 0) result = 'ERROR';
+    if (num < 0) result = err;
     for (let i = 0; i < num; i++) {
         result += string;
         }
@@ -41,13 +38,21 @@ const repeatString = function(string, num) {
 };
 
 gridToggle.addEventListener('change', () => {
-    document.querySelectorAll('.cell').forEach(function(grid){
-        if (gridToggle.checked) {
-            grid.classList = 'cell';
-        } else {
-            grid.classList = 'noCell';
+    let children = gridContainer.children;
+    
+    if (gridToggle.checked) {
+        for (let i = 0; i < children.length; i++) {
+            let grid = children[i];
+            grid.classList.remove('noGrid');
+            grid.classList.add('grid');
         }
-    })
+    } else if (!gridToggle.checked) {
+        for (let i = 0; i < children.length; i++) {
+            let grid = children[i];
+            grid.classList.remove('grid');
+            grid.classList.add('noGrid');
+        }
+    }
 });
 
 function defaultGrid() {
@@ -57,9 +62,9 @@ function defaultGrid() {
     for (let i = 1; i <= 10; i++) {
         // create rows
         for (let j = 1; j <=10; j++) {
-            grid = document.createElement('div');
+            let grid = document.createElement('div');
             gridContainer.append(grid);
-            grid.className = 'cell';
+            grid.className = 'grid';
             gridContainer.style.gridTemplateColumns = `${colRows}`;
             gridContainer.style.gridTemplateRows = `${colRows}`;
         }
@@ -85,9 +90,9 @@ function createGrid() {
         for (let i = 1; i <= value; i++) {
             // create the rows
             for (let j = 1; j <= value; j++) {
-                grid = document.createElement('div');
+                let grid = document.createElement('div');
                 gridContainer.appendChild(grid);
-                grid.className = 'cell';
+                grid.className = "grid";
                 gridContainer.style.gridTemplateColumns = `${colRow}`;
                 gridContainer.style.gridTemplateRows = `${colRow}`;
             }

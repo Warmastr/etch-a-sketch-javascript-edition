@@ -147,10 +147,11 @@ span {
     -webkit-text-stroke-color: black;
 }
 
-.cell {
+.grid {
     border: 1px solid black;
+    visibility: visible;
 }
 
-.noCell {
+.noGrid {
     border: none;
 }
