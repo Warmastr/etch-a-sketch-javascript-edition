@@ -3,8 +3,8 @@ const outerContainer = document.querySelector('.containerOuter');
 const innerContainer = document.querySelector('.containerInner');
 const controls = document.querySelector('.controls');
 const heading = document.querySelector('h1');
-const brushColor = document.querySelector('.colorBrush');
-const backgroundColor = document.querySelector('.colorBg');
+const brushColor = document.querySelector('#brush');
+const backgroundColor = document.querySelector('#bg');
 const shadeBtnContainer = document.querySelector('.btnContainer');
 const darkBtn = document.querySelector('.darken');
 const lightBtn = document.querySelector('.lighten');
@@ -15,6 +15,25 @@ const clear = document.querySelector('.clear');
 const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
+let color = brushColor.value;
+
+brushColor.addEventListener('change', () => {
+    color = brushColor.value;
+})
+
+function draw() {
+    let cell = gridContainer.children;
+    let mouseIsDown = false;
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].addEventListener('mousedown', function(){mouseIsDown = true});
+        cell[i].addEventListener('mouseup', function(){mouseIsDown = false});
+        cell[i].addEventListener('mousemove', function() {
+            if (mouseIsDown) {
+                cell[i].style.backgroundColor = color;
+            }
+        })
+    }
+}
 
 function clearGrid() {
     let lastGridElem = gridContainer.lastElementChild;
@@ -69,19 +88,19 @@ function defaultGrid() {
             gridContainer.style.gridTemplateRows = `${colRows}`;
         }
     }
-    // add reset to input range slider to default 10x10.
 }
 
 function createGrid() {
+    
     // set a default size of 10x10
     defaultGrid();
+    draw();
     // wait for an input change to the value to happen
     gridSize.addEventListener("change", function(e) {
         // delete the current grid
         clearGrid();
         // selects the size of the columns and rows based on the range slider value
         let value = e.target.value;
-
         // update the label to inform the user which size grid was selected
         size.textContent = `Grid Size: ${String(value) + 'x' + String(value)}`
         size.style.color = "maroon";
@@ -99,6 +118,8 @@ function createGrid() {
                 gridContainer.style.gridTemplateRows = `${colRow}`;
             }
         }
+        draw();
     });
 }
 createGrid();
+
