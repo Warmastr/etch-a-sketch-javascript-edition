@@ -79,8 +79,9 @@ function createGrid() {
     gridSize.addEventListener("change", function(e) {
         // delete the current grid
         clearGrid();
-        // establish the width and height value for the grid since it will be square
+        // selects the size of the columns and rows based on the range slider value
         let value = e.target.value;
+
         // update the label to inform the user which size grid was selected
         size.textContent = `Grid Size: ${String(value) + 'x' + String(value)}`
         size.style.color = "maroon";
@@ -90,6 +91,7 @@ function createGrid() {
         for (let i = 1; i <= value; i++) {
             // create the rows
             for (let j = 1; j <= value; j++) {
+                document.getElementById('gridToggle').checked = true;
                 let grid = document.createElement('div');
                 gridContainer.appendChild(grid);
                 grid.className = "grid";

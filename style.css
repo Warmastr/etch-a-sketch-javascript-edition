@@ -78,7 +78,7 @@ button {
     margin: 5px 5px 5px 0;
     display: inline-block;
     background-color: #a31919;
-    border-radius: 13px;
+    border-radius: 8px;
     border: 4px double #cccccc;
     color: #eeeeee;
     text-align: center;
@@ -153,4 +153,26 @@ span {
 
 .noGrid {
     border: none;
+}
+
+.rgb {
+    background-color: #a31919;
+    border-radius: 8px;  
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.rgb:hover{
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    animation:slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+    to {
+        background-position:20vw;
+    }
 }
