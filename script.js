@@ -19,6 +19,7 @@ let rgb = document.querySelector('.rgb');
 let color;
 let count = 0;
 
+
 const userPick = function draw(target){
     target.style.backgroundColor = brushColor.value;
 }
