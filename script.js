@@ -54,6 +54,9 @@ function draw() {
     let cell = gridContainer.children;
     let mouseIsDown = false;
     for (let i = 0; i < cell.length; i++) {
+        cell[i].addEventListener('click', () => {
+            cell[i].style.backgroundColor = color;
+        })
         cell[i].addEventListener('mousedown', function(){mouseIsDown = true});
         cell[i].addEventListener('mouseup', function(){mouseIsDown = false});
         cell[i].addEventListener('mousemove', function() {
