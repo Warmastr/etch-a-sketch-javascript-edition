@@ -20,7 +20,6 @@ let rgb = document.querySelector('.rgb');
 let randColor = getRandomColor();
 console.log(randColor);
 
-
 brushColor.addEventListener('change', () => {
     color = brushColor.value;
 })
@@ -47,8 +46,6 @@ rgb.addEventListener('click', () => {
     color = getRandomColor();
     console.log(color);
 })
-
-
 
 function draw() {
     let cell = gridContainer.children;
@@ -161,4 +158,3 @@ function createGrid() {
     });
 }
 createGrid();
-
