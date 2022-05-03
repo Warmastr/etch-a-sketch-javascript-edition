@@ -19,6 +19,7 @@ let rgb = document.querySelector('.rgb');
 let color;
 let count = 0;
 let index = 0;
+let index2 = 0;
 
 
 const userPick = function draw(target){
@@ -70,7 +71,7 @@ const darken = function draw(target){
 }
 
 const lighten = function draw(target){
-    switch (index) {
+    switch (index2) {
         case 1:
             target.style.filter = 'brightness(110%)';
         break;
@@ -124,9 +125,9 @@ darkBtn.addEventListener('click', () => {
 })
 
 lightBtn.addEventListener('click', () => {
-    index += 1;
-    if (index === 11) {
-        index = 0;
+    index2 += 1;
+    if (index2 === 11) {
+        index2 = 0;
         drawMode = userPick;
     }
     drawMode = lighten;
