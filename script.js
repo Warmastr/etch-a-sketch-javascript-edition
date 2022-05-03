@@ -18,18 +18,141 @@ const size = document.querySelector('#size');
 let color = brushColor.value;
 let rgb = document.querySelector('.rgb');
 let randColor = getRandomColor();
-console.log(randColor);
+let count = 0;
+
+
+
+darkBtn.addEventListener('click', () => {
+    count++;
+    let cell = gridContainer.children;
+    switch (count) {
+        case 1:
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style','-webkit-filter:brightness(10%)');
+        }
+            break;
+        case 2: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(20%)');
+        }
+            break;
+        case 3: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(30%)');
+        }
+            break;
+        case 4: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(40%)');
+        }
+            break;
+        case 5: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(50%)');
+        }
+            break;
+        case 6: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(60%)');
+        }
+            break;
+        case 7: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(70%)');
+        }
+            break;
+        case 8: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(80%)');
+        }
+            break;
+        case 9: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(90%)');
+        }
+            break;
+        case 10: 
+        for (i=0; i<cell.length; i++){
+            cell[i].setAttribute('style', '-webkit-filter: brightness(100%)');
+        }
+            break;
+        case 11:
+            clearGrid();
+            defaultGrid();
+            draw();
+            count = 0;
+        default:
+            break;
+    }
+});
+
+lightBtn.addEventListener('click', () => {
+    count++;
+    let cell = gridContainer.children;
+    switch (count) {
+        case 1:
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(100%";
+        }
+            break;
+        case 2: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(80%)";
+        }
+            break;
+        case 3: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(70%)";
+        }
+            break;
+        case 4: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(60%)";
+        }
+            break;
+        case 5: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(50%)";
+        }
+            break;
+        case 6: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(40%)";
+        }
+            break;
+        case 7: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(30%)";
+        }
+            break;
+        case 8: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(20%)";
+        }
+            break;
+        case 9: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(10%)";
+        }
+            break;
+        case 10: 
+        for (i=0; i<cell.length; i++){
+            cell[i].style.filter = "opacity(0%)";
+        }
+            break;
+        case 11:
+            clearGrid();
+            defaultGrid();
+            draw();
+            count = 0;
+        default:
+            break;
+    }
+});
 
 brushColor.addEventListener('change', () => {
     color = brushColor.value;
 })
-
-function darken(color) {
-    color = randColor;
-    console.log("1 " + color);
-    return color;
-}
-darken(getRandomColor());
 
 function getRandomColor() {
     let hexColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -67,6 +190,7 @@ function draw() {
 }
 
 function clearGrid() {
+    count = 0;
     let lastGridElem = gridContainer.lastElementChild;
     gridContainer.style.backgroundColor = '#737874';
     backgroundColor.value = '#737874';
