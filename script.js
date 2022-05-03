@@ -20,6 +20,7 @@ let rgb = document.querySelector('.rgb');
 let randColor = getRandomColor();
 console.log(randColor);
 
+
 brushColor.addEventListener('change', () => {
     color = brushColor.value;
 })
