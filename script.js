@@ -18,6 +18,7 @@ const size = document.querySelector('#size');
 let rgb = document.querySelector('.rgb');
 let color;
 let count = 0;
+let index = 0;
 
 
 const userPick = function draw(target){
@@ -25,8 +26,82 @@ const userPick = function draw(target){
 }
 let drawMode = userPick;
 
+brushColor.addEventListener('click', () => {
+    drawMode = userPick;
+});
+
 const rainbow = function draw(target){
     target.style.backgroundColor = getRandomColor();
+}
+
+const darken = function draw(target){
+    switch (index) {
+        case 1:
+            target.style.filter = 'brightness(90%)';
+        break;
+        case 2:
+            target.style.filter = 'brightness(80%)';
+        break;
+        case 3:
+            target.style.filter = 'brightness(70%)';
+        break;
+        case 4:
+            target.style.filter = 'brightness(60%)';
+        break;
+        case 5:
+            target.style.filter = 'brightness(50%)';
+        break;
+        case 6:
+            target.style.filter = 'brightness(40%)';
+        break;
+        case 7:
+            target.style.filter = 'brightness(30%)';
+        break;
+        case 8:
+            target.style.filter = 'brightness(20%)';
+        break;
+        case 9:
+            target.style.filter = 'brightness(10%)';
+        break;
+        case 10:
+            target.style.filter = 'brightness(0%)';
+        break;
+    }
+}
+
+const lighten = function draw(target){
+    switch (index) {
+        case 1:
+            target.style.filter = 'brightness(110%)';
+        break;
+        case 2:
+            target.style.filter = 'brightness(120%)';
+        break;
+        case 3:
+            target.style.filter = 'brightness(130%)';
+        break;
+        case 4:
+            target.style.filter = 'brightness(140%)';
+        break;
+        case 5:
+            target.style.filter = 'brightness(150%)';
+        break;
+        case 6:
+            target.style.filter = 'brightness(160%)';
+        break;
+        case 7:
+            target.style.filter = 'brightness(170%)';
+        break;
+        case 8:
+            target.style.filter = 'brightness(180%)';
+        break;
+        case 9:
+            target.style.filter = 'brightness(190%)';
+        break;
+        case 10:
+            target.style.filter = 'brightness(200%)';
+        break;
+    }
 }
 
 rgb.addEventListener('click', () => {
@@ -39,6 +114,23 @@ function getRandomColor() {
     color += hexColor;
     return color;
 }
+
+darkBtn.addEventListener('click', () => {
+    index += 1;
+    if (index === 11) {
+        index = 0;
+    }
+    drawMode = darken;
+})
+
+lightBtn.addEventListener('click', () => {
+    index += 1;
+    if (index === 11) {
+        index = 0;
+        drawMode = userPick;
+    }
+    drawMode = lighten;
+})
 
 backgroundColor.addEventListener('change', () => {
     gridContainer.style.backgroundColor = backgroundColor.value;
