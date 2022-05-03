@@ -15,143 +15,21 @@ const clear = document.querySelector('.clear');
 const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
-let color = brushColor.value;
 let rgb = document.querySelector('.rgb');
-let randColor = getRandomColor();
+let color;
 let count = 0;
 
+const userPick = function draw(target){
+    target.style.backgroundColor = brushColor.value;
+}
+let drawMode = userPick;
 
+const rainbow = function draw(target){
+    target.style.backgroundColor = getRandomColor();
+}
 
-darkBtn.addEventListener('click', () => {
-    count++;
-    let cell = gridContainer.children;
-    switch (count) {
-        case 1:
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style','-webkit-filter:brightness(10%)');
-        }
-            break;
-        case 2: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(20%)');
-        }
-            break;
-        case 3: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(30%)');
-        }
-            break;
-        case 4: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(40%)');
-        }
-            break;
-        case 5: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(50%)');
-        }
-            break;
-        case 6: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(60%)');
-        }
-            break;
-        case 7: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(70%)');
-        }
-            break;
-        case 8: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(80%)');
-        }
-            break;
-        case 9: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(90%)');
-        }
-            break;
-        case 10: 
-        for (i=0; i<cell.length; i++){
-            cell[i].setAttribute('style', '-webkit-filter: brightness(100%)');
-        }
-            break;
-        case 11:
-            clearGrid();
-            defaultGrid();
-            draw();
-            count = 0;
-        default:
-            break;
-    }
-});
-
-lightBtn.addEventListener('click', () => {
-    count++;
-    let cell = gridContainer.children;
-    switch (count) {
-        case 1:
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(100%";
-        }
-            break;
-        case 2: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(80%)";
-        }
-            break;
-        case 3: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(70%)";
-        }
-            break;
-        case 4: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(60%)";
-        }
-            break;
-        case 5: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(50%)";
-        }
-            break;
-        case 6: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(40%)";
-        }
-            break;
-        case 7: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(30%)";
-        }
-            break;
-        case 8: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(20%)";
-        }
-            break;
-        case 9: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(10%)";
-        }
-            break;
-        case 10: 
-        for (i=0; i<cell.length; i++){
-            cell[i].style.filter = "opacity(0%)";
-        }
-            break;
-        case 11:
-            clearGrid();
-            defaultGrid();
-            draw();
-            count = 0;
-        default:
-            break;
-    }
-});
-
-brushColor.addEventListener('change', () => {
-    color = brushColor.value;
+rgb.addEventListener('click', () => {
+    drawMode = rainbow;
 })
 
 function getRandomColor() {
@@ -165,25 +43,18 @@ backgroundColor.addEventListener('change', () => {
     gridContainer.style.backgroundColor = backgroundColor.value;
 })
 
-rgb.addEventListener('click', () => {
-    color = getRandomColor();
-    console.log(color);
-})
-
 function draw() {
     let cell = gridContainer.children;
     let mouseIsDown = false;
     for (let i = 0; i < cell.length; i++) {
         cell[i].addEventListener('click', () => {
-            cell[i].style.backgroundColor = color;
-        })
+            drawMode(cell[i]);
+        });
         cell[i].addEventListener('mousedown', function(){mouseIsDown = true});
         cell[i].addEventListener('mouseup', function(){mouseIsDown = false});
         cell[i].addEventListener('mousemove', function() {
             if (mouseIsDown) {
-                cell[i].style.backgroundColor = color;
-            } else if (rgb.clicked === true) {
-                cell[i].style.backgroundColor = color;
+                drawMode(cell[i]);
             }
         });
     }
