@@ -16,10 +16,39 @@ const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
 let color = brushColor.value;
+let rgb = document.querySelector('.rgb');
+let randColor = getRandomColor();
+console.log(randColor);
 
 brushColor.addEventListener('change', () => {
     color = brushColor.value;
 })
+
+function darken(color) {
+    color = randColor;
+    console.log("1 " + color);
+    return color;
+}
+darken(getRandomColor());
+
+function getRandomColor() {
+    let hexColor = Math.floor(Math.random() * 16777215).toString(16);
+    let color = '#';
+    color += hexColor;
+    
+    return color;
+}
+
+backgroundColor.addEventListener('change', () => {
+    gridContainer.style.backgroundColor = backgroundColor.value;
+})
+
+rgb.addEventListener('click', () => {
+    color = getRandomColor();
+    console.log(color);
+})
+
+
 
 function draw() {
     let cell = gridContainer.children;
@@ -30,13 +59,17 @@ function draw() {
         cell[i].addEventListener('mousemove', function() {
             if (mouseIsDown) {
                 cell[i].style.backgroundColor = color;
+            } else if (rgb.clicked === true) {
+                cell[i].style.backgroundColor = color;
             }
-        })
+        });
     }
 }
 
 function clearGrid() {
     let lastGridElem = gridContainer.lastElementChild;
+    gridContainer.style.backgroundColor = '#737874';
+    backgroundColor.value = '#737874';
     while (lastGridElem) {
         gridContainer.removeChild(lastGridElem);
         lastGridElem = gridContainer.lastElementChild;
@@ -45,6 +78,8 @@ function clearGrid() {
 
 clear.addEventListener('click', () => {
     clearGrid();
+    defaultGrid();
+    draw();
 });
 const repeatString = function(string, num) {
     const err = 'ERROR';
@@ -58,7 +93,6 @@ const repeatString = function(string, num) {
 
 gridToggle.addEventListener('change', () => {
     let children = gridContainer.children;
-    
     if (gridToggle.checked) {
         for (let i = 0; i < children.length; i++) {
             let grid = children[i];
@@ -75,6 +109,8 @@ gridToggle.addEventListener('change', () => {
 });
 
 function defaultGrid() {
+    gridSize.value = '10';
+    size.textContent = 'Grid Size: 10x10';
     // create a 10x10 grid
     let colRows = repeatString('1fr ', 10);
     // create columns
