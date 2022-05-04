@@ -8,6 +8,7 @@ Etch A Sketch in JavaScript is a simple doodle script that will utilize a grid o
 * Color pickers for paint brush and background
 * Adjustable canvas size (10x10 minimum up to 100x100)
 * Grid on/off checkbox
+* Rainbow button for that crazy rainbow brush stroke
 
 ## Background
 This app is part of The Odin Project, specifically, the Etch A Sketch project in the Foundations section on [The Odin Project](https://www.theodinproject.com). The project is designed to promote use of the newly-learned DOM manipulation in combination with all previous lessons on HTML, CSS, and JavaScript. 
