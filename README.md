@@ -4,7 +4,7 @@
 Etch A Sketch in JavaScript is a simple doodle script that will utilize a grid of cells that will allow you to write/draw on by clicking and dragging to fill in the cells with the color of your choice.
 
 ### Features
-* Darken and Lighten mode (adds +/- 10% per stroke in white or black)
+* Darken and Lighten mode (adds +/- 10% per stroke in white or black) -NOTE: You must click the buttons for either darken or lighten (or both) to increase the darkness/lightness. Pressing the clear button will reset the darken/lighten buttons.
 * Color pickers for paint brush and background
 * Adjustable canvas size (10x10 minimum up to 100x100)
 * Grid on/off checkbox
