@@ -16,11 +16,13 @@ const gridStyle = document.querySelector('.gridStyle');
 const gridDiv = document.createElement('div');
 const size = document.querySelector('#size');
 let rgb = document.querySelector('.rgb');
+let body = document.querySelector('body');
 let color;
 let count = 0;
 let index = 0;
 let index2 = 0;
 
+document.body.ondragstart = () => false;
 
 const userPick = function draw(target){
     target.style.backgroundColor = brushColor.value;
@@ -238,7 +240,7 @@ function createGrid() {
                 document.getElementById('gridToggle').checked = true;
                 let grid = document.createElement('div');
                 gridContainer.appendChild(grid);
-                grid.className = "grid";
+                grid.className = 'grid';
                 gridContainer.style.gridTemplateColumns = `${colRow}`;
                 gridContainer.style.gridTemplateRows = `${colRow}`;
             }
