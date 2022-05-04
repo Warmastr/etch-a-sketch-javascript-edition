@@ -168,6 +168,8 @@ function clearGrid() {
 }
 
 clear.addEventListener('click', () => {
+    index = 0;
+    index2 = 0;
     clearGrid();
     defaultGrid();
     draw();
